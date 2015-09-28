@@ -59,8 +59,13 @@ define ecryptfs::mount (
     'unmounted': {
       exec { "ecryptfs_umount_${source_dir_norm}_${dest_dir_norm}":
         command => "umount '${dest_dir}'",
-        # unless  => 
+        onlyif  => "mount | grep '^${source_dir} on ${dest_dir} type ecryptfs'"
       }
+    }
+
+    default: {
+      # if we are here, that means parameters validation has failed
+      fail("ecryptfs: ensure should be set either to 'mounted' or 'unmounted'")
     }
 
   }

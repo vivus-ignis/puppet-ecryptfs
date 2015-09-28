@@ -1,8 +1,8 @@
 {
   "name": "ignis-ecryptfs",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "Iaroslav Tarasenko",
-  "summary": "Manage encryptfs mounts",
+  "summary": "Manage ecryptfs mounts",
   "license": "MIT",
   "source": "https://github.com/vivus-ignis/puppet-ecryptfs",
   "project_page": null,
