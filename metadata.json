@@ -1,12 +1,12 @@
 {
-  "name": "puppet-ecryptfs",
+  "name": "ignis-ecryptfs",
   "version": "0.1.0",
   "author": "Iaroslav Tarasenko",
   "summary": "Manage encryptfs mounts",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/vivus-ignis/puppet-ecryptfs",
   "project_page": null,
-  "issues_url": null,
+  "issues_url": "https://github.com/vivus-ignis/puppet-ecryptfs/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
   ]
