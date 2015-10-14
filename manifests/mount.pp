@@ -39,6 +39,15 @@ define ecryptfs::mount (
   case $ensure {
 
     'mounted': {
+
+      exec { 'Validating the passphrase file is not empty':
+        command => "test -r ${passphrase_file} && test -s ${passphrase_file}"
+      } ->
+
+      exec { 'Validating the passphrase file has the correct format':
+        command => "grep -q '^passphrase_passwd=' ${passphrase_file}"
+      } ->
+
       exec { $fnek_file:
         command     => "cat ${passphrase_file} | ecryptfs-add-passphrase --fnek - | head -1 | cut -d'[' -f2 | cut -d']' -f1 | perl -pe 'chomp' > ${fnek_file}",
         environment => 'LC_ALL=C',
