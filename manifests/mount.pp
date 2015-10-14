@@ -40,11 +40,11 @@ define ecryptfs::mount (
 
     'mounted': {
 
-      exec { 'Validating the passphrase file is not empty':
+      exec { "ecryptfs ${name_norm}: validating the passphrase file is not empty":
         command => "test -r ${passphrase_file} && test -s ${passphrase_file}"
       } ->
 
-      exec { 'Validating the passphrase file has the correct format':
+      exec { "ecryptfs ${name_norm}: validating the passphrase file has the correct format":
         command => "grep -q '^passphrase_passwd=' ${passphrase_file}"
       } ->
 
